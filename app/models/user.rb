@@ -38,7 +38,11 @@ class User < ActiveRecord::Base
   def name_kana
     "#{family_name_kana} #{first_name_kana}"
   end
-  
+
+  def full_profile?
+    family_name? && first_name? && family_name_kana? && first_name_kana? && avatar?
+  end
+
   private
   def has_group_key?
     group_key.present?
