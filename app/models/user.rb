@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   #validation
   before_validation :group_key_to_id, if: :has_group_key?
 
+  # paperclip
+  has_attached_file :avatar, styles: { medium: "300*300>", thumb: "100*100>"}
+  validates_attachment_content_type :avatar, content_type: ["image/jpg","image/jpeg","image/png"]
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     group_key = conditions.delete(:group_key)
