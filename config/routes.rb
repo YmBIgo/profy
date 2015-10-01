@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   root to: "top#index"
   resources :groups, only: [:show, :edit, :update]
+  resources :questions, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
