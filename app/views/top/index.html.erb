@@ -18,5 +18,6 @@
     <% end %>
   </div>
 
-  <%= render partial: "questions/question", collection: @questions %>
+  <!-- render に インスタンスを渡した場合は、html を自動で呼び出し分けてくれる。 -->
+  <%= render @feed_contents %>
 <% end %>
