@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def create
     Question.create(create_params)
+    # question.feed_content = FeedContent.create(group_id: question.group_id, update_at: question.updated_at)
     redirect_to :root and return
   end
 
