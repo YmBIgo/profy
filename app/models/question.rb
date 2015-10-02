@@ -17,6 +17,11 @@ class Question < ActiveRecord::Base
     Answer.find_by(user_id: user_id, question_id: id)
   end
 
+  def answered?(user)
+    # question.answers.where(user_id: user.id).exists?
+    answers.exists?(user_id: user.id)
+  end
+
   private
   def create_feed_content
     self.feed_content = FeedContent.create(group_id: group_id, updated_at: updated_at)

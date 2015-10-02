@@ -19,5 +19,6 @@
   </div>
 
   <!-- render に インスタンスを渡した場合は、html を自動で呼び出し分けてくれる。 -->
-  <%= render @feed_contents %>
+  <%= render @feed_contents_resource %>
+  <%= paginate(@feed_contents) %>
 <% end %>
